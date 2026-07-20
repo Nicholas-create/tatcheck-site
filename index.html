@@ -5,222 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TatCheck — check the tat before you buy it</title>
 <meta name="description" content="Photograph any second-hand item and get an honest AI resale estimate with live eBay comparisons — before you spend a penny. Built for UK charity shop and car boot flippers.">
+<meta property="og:title" content="TatCheck — check the tat before you buy it">
+<meta property="og:description" content="Honest AI resale estimates with live eBay comps, for UK charity shop and car boot flippers.">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --ink: #191922;
-    --paper: #faf8f4;
-    --card: #ffffff;
-    --indigo: #3a45c7;
-    --indigo-dark: #2e37a3;
-    --buy: #219853;
-    --muted: #6c6a75;
-    --line: #e8e4dc;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: "Inter", -apple-system, sans-serif;
-    background: var(--paper);
-    color: var(--ink);
-    line-height: 1.6;
-  }
-  .wrap { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
-
-  /* Header */
-  header { padding: 28px 0; }
-  .brand {
-    font-family: "Fraunces", serif;
-    font-weight: 900;
-    font-size: 1.5rem;
-    letter-spacing: -0.02em;
-  }
-  .brand .tick { color: var(--buy); }
-
-  /* Hero */
-  .hero {
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 48px;
-    align-items: center;
-    padding: 48px 0 72px;
-  }
-  h1 {
-    font-family: "Fraunces", serif;
-    font-weight: 900;
-    font-size: clamp(2.4rem, 5.5vw, 3.9rem);
-    line-height: 1.04;
-    letter-spacing: -0.025em;
-  }
-  h1 em {
-    font-style: normal;
-    color: var(--indigo);
-  }
-  .hero p.lead {
-    margin: 20px 0 28px;
-    font-size: 1.125rem;
-    color: var(--muted);
-    max-width: 30rem;
-  }
-  .cta {
-    display: inline-block;
-    background: var(--ink);
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 14px 26px;
-    border-radius: 999px;
-    font-size: 1rem;
-  }
-  .cta small { display: block; font-weight: 400; opacity: 0.7; font-size: 0.75rem; }
-  .subnote { margin-top: 14px; font-size: 0.85rem; color: var(--muted); }
-
-  /* Mock result card — the app's verdict moment, faithfully */
-  .mock {
-    background: var(--card);
-    border-radius: 24px;
-    box-shadow: 0 24px 60px -24px rgba(25,25,34,0.28);
-    overflow: hidden;
-    max-width: 340px;
-    justify-self: center;
-    transform: rotate(1.5deg);
-  }
-  .mock .photo {
-    height: 170px;
-    background: linear-gradient(135px, #5b6a8c, #3e4a66);
-    background: linear-gradient(135deg, #5b6a8c, #3e4a66);
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    padding: 14px;
-  }
-  .mock .photo span {
-    color: #fff;
-    font-weight: 700;
-    font-size: 0.95rem;
-    text-shadow: 0 1px 8px rgba(0,0,0,0.5);
-  }
-  .mock .body { padding: 16px; }
-  .ranges { display: flex; gap: 10px; }
-  .range {
-    flex: 1;
-    background: #f4f2ed;
-    border-radius: 14px;
-    text-align: center;
-    padding: 12px 6px;
-  }
-  .range b { font-size: 1.15rem; display: block; }
-  .range small {
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 0.62rem;
-    color: var(--muted);
-    font-weight: 600;
-  }
-  .worth {
-    margin-top: 12px;
-    background: #f4f2ed;
-    border-radius: 14px;
-    padding: 12px 14px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .chip {
-    background: var(--buy);
-    color: #fff;
-    font-weight: 800;
-    font-size: 0.8rem;
-    padding: 6px 14px;
-    border-radius: 999px;
-    letter-spacing: 0.03em;
-  }
-  .profit { color: var(--buy); font-weight: 800; font-size: 1.1rem; }
-  .sticker {
-    position: absolute;
-    top: 12px; right: 12px;
-    background: #ffdf5c;
-    color: var(--ink);
-    font-weight: 700;
-    font-size: 0.75rem;
-    padding: 6px 10px;
-    border-radius: 4px;
-    transform: rotate(6deg);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-  }
-
-  /* Steps */
-  .steps {
-    border-top: 1px solid var(--line);
-    padding: 64px 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 36px;
-  }
-  .step h3 {
-    font-family: "Fraunces", serif;
-    font-weight: 700;
-    font-size: 1.3rem;
-    margin-bottom: 8px;
-  }
-  .step .glyph {
-    font-size: 1.6rem;
-    display: inline-block;
-    margin-bottom: 12px;
-  }
-  .step p { color: var(--muted); font-size: 0.95rem; }
-
-  /* Honesty strip */
-  .honest {
-    background: var(--ink);
-    color: var(--paper);
-    border-radius: 24px;
-    padding: 44px 40px;
-    margin-bottom: 72px;
-  }
-  .honest h2 {
-    font-family: "Fraunces", serif;
-    font-weight: 700;
-    font-size: 1.6rem;
-    margin-bottom: 18px;
-  }
-  .honest ul { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 32px; }
-  .honest li { padding-left: 26px; position: relative; font-size: 0.95rem; opacity: 0.92; }
-  .honest li::before { content: "✓"; position: absolute; left: 0; color: var(--buy); font-weight: 800; }
-
-  footer {
-    border-top: 1px solid var(--line);
-    padding: 28px 0 48px;
-    font-size: 0.85rem;
-    color: var(--muted);
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  footer a { color: var(--indigo); text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
-
-  @media (max-width: 760px) {
-    .hero { grid-template-columns: 1fr; padding: 24px 0 48px; }
-    .mock { transform: none; }
-    .steps { grid-template-columns: 1fr; padding: 48px 0; }
-    .honest ul { grid-template-columns: 1fr; }
-  }
-</style>
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <div class="wrap">
-  <header>
-    <div class="brand">TatCheck<span class="tick">✓</span></div>
-  </header>
 
-  <section class="hero">
+  <nav>
+    <a class="brand" href="/">TatCheck<span class="tick">✓</span></a>
+    <div class="links">
+      <a href="#how">How it works</a>
+      <a href="#honest">Why us</a>
+      <a href="#faq">FAQ</a>
+      <a class="pill" href="#get">Get the app</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="get">
     <div>
       <h1>Check the <em>tat</em> before you buy it.</h1>
       <p class="lead">Photograph any second-hand item and get an honest AI resale estimate with live eBay comparisons — before you spend a penny. Built for UK charity shop and car boot flippers.</p>
-      <a class="cta" href="#">Coming soon to the App&nbsp;Store<small>Join the flip side</small></a>
-      <p class="subnote">One free scan. No account. No ads. Photos analysed, never stored.</p>
+      <a class="cta" href="#">Coming soon to the App&nbsp;Store<small>iPhone · one free scan, no card</small></a>
+      <p class="subnote">No account. No ads. Photos analysed, never stored.</p>
     </div>
     <div class="mock" aria-hidden="true">
       <div class="photo">
@@ -238,44 +49,102 @@
         </div>
       </div>
     </div>
+  </header>
+
+  <section class="bordered" id="how">
+    <h2>Shelf to verdict in seconds</h2>
+    <p class="section-sub">You're standing in the shop, item in hand, wondering if it's worth the ticket price. That's the whole problem TatCheck solves.</p>
+    <div class="steps">
+      <div class="step">
+        <span class="glyph">📸</span>
+        <h3>Scan it on the shelf</h3>
+        <p>Point your camera at the jumper, the jeans, the odd little vase. AI identifies the brand and model in seconds — add a photo of the label for an even sharper match.</p>
+      </div>
+      <div class="step">
+        <span class="glyph">🏷️</span>
+        <h3>See what it really fetches</h3>
+        <p>Honest price ranges grounded in live eBay listings — with the actual comparable listings shown, plus one-tap links to sold prices, so you can check our working.</p>
+      </div>
+      <div class="step">
+        <span class="glyph">💷</span>
+        <h3>Buy or walk away</h3>
+        <p>Type the ticket price and get a straight BUY, RISKY, or SKIP — with your estimated profit after fees, not before. Then generate a ready-to-paste listing for Vinted or eBay.</p>
+      </div>
+    </div>
   </section>
 
-  <section class="steps">
-    <div class="step">
-      <span class="glyph">📸</span>
-      <h3>Scan it on the shelf</h3>
-      <p>Point your camera at the jumper, the jeans, the odd little vase. AI identifies the brand and model in seconds.</p>
-    </div>
-    <div class="step">
-      <span class="glyph">🏷️</span>
-      <h3>See what it really fetches</h3>
-      <p>Honest price ranges grounded in live eBay listings — with the actual comps shown, so you can check our working.</p>
-    </div>
-    <div class="step">
-      <span class="glyph">💷</span>
-      <h3>Buy or walk away</h3>
-      <p>Type the ticket price and get a straight BUY, RISKY, or SKIP — with your estimated profit after fees, not before.</p>
+  <section class="bordered">
+    <h2>Straight off the shelf</h2>
+    <p class="section-sub">Real scans, real comps, real profit tracking.</p>
+    <div class="shots">
+      <figure class="shot">
+        <div class="phone">
+          <div class="placeholder">📱<br>Scan result screenshot<br>coming here</div>
+        </div>
+        <figcaption><b>The verdict moment</b> — ranges, live comps, profit after fees</figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="phone">
+          <div class="placeholder">📦<br>Inventory screenshot<br>coming here</div>
+        </div>
+        <figcaption><b>Your flips, tracked</b> — from "watching" to sold, profit totted up</figcaption>
+      </figure>
     </div>
   </section>
 
-  <section class="honest">
-    <h2>The honest one.</h2>
-    <ul>
-      <li>Price ranges, never magic single numbers</li>
-      <li>Real eBay comps on every result — verify everything</li>
-      <li>Profit shown after fees, not before</li>
-      <li>One genuinely free scan, no card required</li>
-      <li>No account, no ads, no tracking</li>
-      <li>Photos analysed, never stored</li>
-    </ul>
+  <section id="honest">
+    <div class="honest">
+      <h2>The honest one.</h2>
+      <p class="section-sub">Resale scanner apps have a reputation problem. We built TatCheck to be the exception.</p>
+      <ul>
+        <li>Price ranges, never magic single numbers</li>
+        <li>Real eBay comps on every result — verify everything</li>
+        <li>Profit shown after fees, not before</li>
+        <li>One genuinely free scan, no card required</li>
+        <li>No account, no ads, no tracking</li>
+        <li>Photos analysed, never stored</li>
+        <li>We never touch your marketplace accounts</li>
+        <li>Estimates labelled as estimates — always</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="bordered faq" id="faq">
+    <h2>Questions, answered honestly</h2>
+    <details>
+      <summary>How accurate are the estimates?</summary>
+      <p>They're estimates — we say that everywhere, on purpose. Each one is grounded in live eBay UK listings for the same item, adjusted downward because asking prices run above what things actually sell for. Every result links straight to eBay sold prices and live Vinted listings so you can verify before spending a penny. Condition, authenticity, and timing always matter; that judgement stays yours.</p>
+    </details>
+    <details>
+      <summary>What does it cost?</summary>
+      <p>Your first scan is genuinely free — no card, no trial that quietly converts. After that it's £4.99/week or £39.99/year, priced clearly on the paywall before you pay, cancellable any time in your Apple ID settings. Our thinking: one good flip pays for it.</p>
+    </details>
+    <details>
+      <summary>What happens to my photos?</summary>
+      <p>They're sent securely to our server, analysed in memory, and never stored, logged, or retained. Photos you save to your Inventory live only on your phone. There are no accounts, no ad SDKs, and no tracking. Full detail in our <a href="privacy/">privacy policy</a>.</p>
+    </details>
+    <details>
+      <summary>Does it post listings for me?</summary>
+      <p>No — and that's deliberate. Tools that auto-post to marketplaces have got people's accounts restricted or banned. TatCheck generates the listing text (title, description, item specifics, suggested price) and you paste it yourself in ten seconds. Your accounts stay yours.</p>
+    </details>
+    <details>
+      <summary>Which marketplaces does it cover?</summary>
+      <p>Estimates for both Vinted and eBay — the two places UK flippers actually sell. Comparison listings come from eBay UK's live market; Vinted figures are adjusted from that data (Vinted has no public price API), with a one-tap link to check live Vinted listings yourself.</p>
+    </details>
+    <details>
+      <summary>iPhone only?</summary>
+      <p>For now, yes — iPhone, from the App Store. If enough people ask for Android, that changes.</p>
+    </details>
   </section>
 
   <footer>
     <span>© 2026 TatCheck</span>
-    <a href="/privacy/">Privacy Policy</a>
-    <a href="/terms/">Terms of Use</a>
+    <a href="privacy/">Privacy Policy</a>
+    <a href="terms/">Terms of Use</a>
+    <span class="spacer"></span>
     <a href="mailto:support@tatcheck.co.uk">support@tatcheck.co.uk</a>
   </footer>
+
 </div>
 </body>
 </html>
