@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..900;1,9..144,500..900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
   <nav>
     <a class="brand" href="/">TatCheck<span class="tick">✓</span></a>
     <div class="links">
-      <a href="#how">How it works</a>
+      <a href="#tour">How it works</a>
       <a href="#honest">Why us</a>
       <a href="#faq">FAQ</a>
       <a class="pill" href="#get">Get the app</a>
@@ -28,67 +28,95 @@
 
   <header class="hero" id="get">
     <div>
-      <h1>Check the <em>tat</em> before you buy it.</h1>
-      <p class="lead">Photograph any second-hand item and get an honest AI resale estimate with live eBay comparisons — before you spend a penny. Built for UK charity shop and car boot flippers.</p>
+      <h1>Check<br>the <span class="tat">tat</span>.</h1>
+      <p class="lead">Photograph any second-hand item and get an honest AI resale estimate with live eBay comparisons — before you spend a penny.</p>
       <a class="cta" href="#">Coming soon to the App&nbsp;Store<small>iPhone · one free scan, no card</small></a>
       <p class="subnote">No account. No ads. Photos analysed, never stored.</p>
     </div>
-    <div class="mock" aria-hidden="true">
-      <div class="photo">
-        <div class="sticker">£4.50 tag</div>
-        <span>Levi's 501 Jeans, W32 L32</span>
-      </div>
-      <div class="body">
-        <div class="ranges">
-          <div class="range"><b>£18–£26</b><small>Vinted</small></div>
-          <div class="range"><b>£20–£28</b><small>eBay</small></div>
+
+    <div class="stage-holder" aria-label="Demonstration of a TatCheck scan">
+      <div class="stage">
+        <div class="photo">
+          <div class="beam"></div>
+          <div class="sticker">£4.50 tag</div>
+          <div class="idlines">
+            <div class="l1"></div>
+            <div class="l2"></div>
+          </div>
         </div>
-        <div class="worth">
-          <span class="chip">BUY</span>
-          <span class="profit">+£14 to £21</span>
+        <div class="body">
+          <div class="ranges">
+            <div class="range"><b>£18–£26</b><small>Vinted</small></div>
+            <div class="range"><b>£20–£28</b><small>eBay</small></div>
+          </div>
+          <div class="worth">
+            <span class="chip">BUY</span>
+            <span class="profit"></span>
+          </div>
         </div>
       </div>
+      <button class="replay" type="button">↻ scan it again</button>
     </div>
   </header>
 
-  <section class="bordered" id="how">
+</div>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="tick-item"><b>Levi's 501s, W32</b> <span class="mini-chip buy">BUY</span> +£14 to £21</span>
+    <span class="tick-item"><b>single slipper</b> <span class="mini-chip skip">SKIP</span> it's one slipper</span>
+    <span class="tick-item"><b>Samsonite laptop backpack</b> <span class="mini-chip buy">BUY</span> +£9 to £16</span>
+    <span class="tick-item"><b>vase, possibly haunted</b> <span class="mini-chip risky">RISKY</span> depends on the ghost</span>
+    <span class="tick-item"><b>Le Creuset 24cm, volcanic</b> <span class="mini-chip buy">BUY</span> +£38 to £52</span>
+    <span class="tick-item"><b>blurry photo of carpet</b> <span class="mini-chip retake">RETAKE</span> no item visible</span>
+    <span class="tick-item"><b>Barbour Bedale, size M</b> <span class="mini-chip buy">BUY</span> +£43 to £61</span>
+    <span class="tick-item"><b>2003 printer cable</b> <span class="mini-chip skip">SKIP</span> leave it</span>
+    <span class="tick-item"><b>Levi's 501s, W32</b> <span class="mini-chip buy">BUY</span> +£14 to £21</span>
+    <span class="tick-item"><b>single slipper</b> <span class="mini-chip skip">SKIP</span> it's one slipper</span>
+    <span class="tick-item"><b>Samsonite laptop backpack</b> <span class="mini-chip buy">BUY</span> +£9 to £16</span>
+    <span class="tick-item"><b>vase, possibly haunted</b> <span class="mini-chip risky">RISKY</span> depends on the ghost</span>
+    <span class="tick-item"><b>Le Creuset 24cm, volcanic</b> <span class="mini-chip buy">BUY</span> +£38 to £52</span>
+    <span class="tick-item"><b>blurry photo of carpet</b> <span class="mini-chip retake">RETAKE</span> no item visible</span>
+    <span class="tick-item"><b>Barbour Bedale, size M</b> <span class="mini-chip buy">BUY</span> +£43 to £61</span>
+    <span class="tick-item"><b>2003 printer cable</b> <span class="mini-chip skip">SKIP</span> leave it</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section id="tour">
     <h2>Shelf to verdict in seconds</h2>
     <p class="section-sub">You're standing in the shop, item in hand, wondering if it's worth the ticket price. That's the whole problem TatCheck solves.</p>
-    <div class="steps">
-      <div class="step">
-        <span class="glyph">📸</span>
-        <h3>Scan it on the shelf</h3>
-        <p>Point your camera at the jumper, the jeans, the odd little vase. AI identifies the brand and model in seconds — add a photo of the label for an even sharper match.</p>
-      </div>
-      <div class="step">
-        <span class="glyph">🏷️</span>
-        <h3>See what it really fetches</h3>
-        <p>Honest price ranges grounded in live eBay listings — with the actual comparable listings shown, plus one-tap links to sold prices, so you can check our working.</p>
-      </div>
-      <div class="step">
-        <span class="glyph">💷</span>
-        <h3>Buy or walk away</h3>
-        <p>Type the ticket price and get a straight BUY, RISKY, or SKIP — with your estimated profit after fees, not before. Then generate a ready-to-paste listing for Vinted or eBay.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="bordered">
-    <h2>Straight off the shelf</h2>
-    <p class="section-sub">Real scans, real comps, real profit tracking.</p>
-    <div class="shots">
-      <figure class="shot">
-        <div class="phone">
-          <img src="assets/screenshot-result.png" alt="TatCheck scan result: a book identified with price ranges and live eBay comparison listings" loading="lazy">
+    <div class="tour">
+      <div class="tour-phone-wrap">
+        <div class="tour-phone">
+          <img src="assets/screenshot-result.png" data-shot="result" alt="TatCheck scan result: a book identified with price ranges and live eBay comparison listings">
+          <img src="assets/screenshot-inventory.png" data-shot="inventory" alt="TatCheck inventory: saved items with statuses and a running profit total">
         </div>
-        <figcaption><b>The verdict moment</b> — ranges, live comps, profit after fees</figcaption>
-      </figure>
-      <figure class="shot">
-        <div class="phone">
-          <img src="assets/screenshot-inventory.png" alt="TatCheck inventory: saved items with statuses and a running profit total" loading="lazy">
+      </div>
+      <div class="beats">
+        <div class="beat" data-shot="result">
+          <div class="inner">
+            <div class="kicker">01</div>
+            <h3>Scan it on the shelf</h3>
+            <p>Point your camera at the jumper, the jeans, the odd little vase. AI reads the brand and model in seconds — add a photo of the label for an even sharper match.</p>
+          </div>
         </div>
-        <figcaption><b>Your flips, tracked</b> — from "watching" to sold, profit totted up</figcaption>
-      </figure>
+        <div class="beat" data-shot="result">
+          <div class="inner">
+            <div class="kicker">02</div>
+            <h3>See what it really fetches</h3>
+            <p>Honest price ranges grounded in live eBay listings — with the actual comparable listings shown, plus one-tap links to sold prices, so you can check our working.</p>
+          </div>
+        </div>
+        <div class="beat" data-shot="inventory">
+          <div class="inner">
+            <div class="kicker">03</div>
+            <h3>Buy or walk away</h3>
+            <p>Type the ticket price and get a straight BUY, RISKY, or SKIP — profit shown after fees, not before. Then track every flip from "watching" to sold.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -109,7 +137,7 @@
     </div>
   </section>
 
-  <section class="bordered faq" id="faq">
+  <section class="faq" id="faq">
     <h2>Questions, answered honestly</h2>
     <details>
       <summary>How accurate are the estimates?</summary>
@@ -146,5 +174,6 @@
   </footer>
 
 </div>
+<script src="assets/scan.js" defer></script>
 </body>
 </html>
