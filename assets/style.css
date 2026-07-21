@@ -97,6 +97,18 @@ h1 .tat { color: var(--indigo); }
 .cta small { display: block; font-weight: 400; opacity: 0.7; font-size: 0.75rem; }
 .subnote { margin-top: 14px; font-size: 0.85rem; color: var(--muted); }
 
+.coming {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.badge { display: inline-block; transition: transform 0.15s ease; }
+.badge:hover { transform: translateY(-2px); }
+.badge img { display: block; height: 54px; width: auto; }
+
 /* ---------- The scan stage (signature) ---------- */
 .stage-holder { position: relative; justify-self: center; }
 .stage {
