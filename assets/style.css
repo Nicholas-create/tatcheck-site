@@ -45,8 +45,8 @@ nav {
   padding: 26px 0;
 }
 .brand {
-  font-family: "Fraunces", serif;
-  font-weight: 900;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800;
   font-size: 1.5rem;
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -68,14 +68,14 @@ nav .links a.pill { background: var(--ink); color: #fff; padding: 9px 18px; bord
   min-height: 78vh;
 }
 h1 {
-  font-family: "Fraunces", serif;
-  font-weight: 900;
-  font-variation-settings: "opsz" 144, "wght" 900;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "opsz" 96, "wght" 800;
   font-size: clamp(3rem, 7.5vw, 5.4rem);
   line-height: 0.98;
   letter-spacing: -0.03em;
 }
-h1 .tat { color: var(--indigo); font-style: italic; }
+h1 .tat { color: var(--indigo); }
 .hero p.lead {
   margin: 22px 0 30px;
   font-size: 1.15rem;
@@ -274,7 +274,7 @@ h1 .tat { color: var(--indigo); font-style: italic; }
 /* ---------- Sections ---------- */
 section { padding: 84px 0; }
 h2 {
-  font-family: "Fraunces", serif;
+  font-family: "Bricolage Grotesque", sans-serif;
   font-weight: 700;
   font-size: clamp(1.8rem, 3.6vw, 2.6rem);
   letter-spacing: -0.02em;
@@ -308,14 +308,14 @@ h2 {
 .beats { display: flex; flex-direction: column; }
 .beat { min-height: 72vh; display: flex; flex-direction: column; justify-content: center; }
 .beat .kicker {
-  font-family: "Fraunces", serif;
-  font-weight: 900;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800;
   font-size: 3.2rem;
   color: var(--line);
   line-height: 1;
 }
 .beat h3 {
-  font-family: "Fraunces", serif;
+  font-family: "Bricolage Grotesque", sans-serif;
   font-weight: 700;
   font-size: 1.7rem;
   margin: 10px 0 10px;
@@ -405,7 +405,7 @@ footer .spacer { flex: 1; }
   }
   @keyframes rise { to { opacity: 1; transform: none; } }
   @keyframes slidein { to { opacity: 0.94; transform: none; } }
-  @keyframes settle { to { font-variation-settings: "opsz" 30, "wght" 640; letter-spacing: -0.015em; } }
+  @keyframes settle { to { font-variation-settings: "opsz" 40, "wght" 550; letter-spacing: -0.015em; } }
 }
 
 /* ---------- Reduced motion: land everything ---------- */
